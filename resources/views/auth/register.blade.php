@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="mt-4">
-        <img src="{{url('/images/WSJ_Horizontal.png')}}" class="w-2/3 mx-auto py-8 mb-8"/>
+        <img src="{{url('/images/WSJ_Horizontal.png')}}" class="sm:w-2/3 w-full mx-auto py-8 mb-8"/>
     </div>
 
     <div class="mb-4">
