@@ -40,7 +40,8 @@ class BlogPostController extends Controller
      */
     public function store(StoreBlogPostRequest $request)
     {
-        //
+        $post = BlogPost::create($request->all());
+        return redirect("/posts/$post->id");
     }
 
     /**

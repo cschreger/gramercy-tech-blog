@@ -6,6 +6,11 @@
 
                 <h2 class="text-3xl font-sharpblack tracking-widest text-white sm:text-4xl">{{$post->title}}</h2>
                 <p class="mt-2 text-lg font-sharpmedium tracking-wider leading-8 text-gray-200">{{$post->created_at->format('F jS, o')}}</p>
+                @if ($post->author == $user)
+                <a href="/posts/{{$post->id}}/edit" class="text-gray-200 hover:underline">
+                    <div>Edit Post</div>
+                </a>
+                @endif
 
                 <div class="space-y-16 border-t border-gray-200 pt-10 sm:mt-8 sm:pt-8">
                     <article class="flex max-w-xl flex-col items-start justify-between text-gray-100 font-sharpmedium">
@@ -20,11 +25,6 @@
                             </div>
                         </div>
                     </article>
-                    @if ($post->author == $user)
-                    <a href="/posts/{{$post->id}}/edit" class="text-gray-200 hover:underline">
-                        <div>Edit Post</div>
-                    </a>
-                    @endif
 
                     <div class="mt-4">
                         <img src="{{url('/images/separator.png')}}" class="w-12 mx-auto mb-8" />

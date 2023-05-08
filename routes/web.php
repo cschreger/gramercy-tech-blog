@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\ProfileController;
+use App\Models\BlogPost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/posts', [BlogPostController::class, 'index'])->name('posts.index');
+    Route::post('/posts', [BlogPostController::class, 'store'])->name('posts.store');
     Route::get('/posts/create', [BlogPostController::class, 'create'])->name('posts.create');
     Route::get('/posts/{id}', [BlogPostController::class, 'show'])->name('posts.show');
     Route::put('/posts/{id}', [BlogPostController::class, 'update'])->name('posts.update');

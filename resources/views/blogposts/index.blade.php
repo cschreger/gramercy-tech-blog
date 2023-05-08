@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         @if ($post->author == $user)
-                            <a href="/posts/{{$post->id}}/edit"><div>Edit Post</div></a>
+                            <a href="/posts/{{$post->id}}/edit" class="hover:underline"><div>Edit Post</div></a>
                         @endif
                     </article>
 
