@@ -10,7 +10,7 @@
                         {{ __('View All Posts') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('profile.posts')" :active="request()->routeIs('profile.posts')">
                         {{ __('View My Posts') }}
                     </x-nav-link>
 
