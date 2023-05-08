@@ -17,10 +17,9 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $routeUri = FacadesRoute::current()->uri();
         $user = Auth::user();
         $posts = BlogPost::all();
-        return view('blogposts.index', compact('posts', 'user', 'routeUri'));
+        return view('blogposts.index', compact('posts', 'user'));
     }
 
     /**
@@ -50,9 +49,12 @@ class BlogPostController extends Controller
      * @param  \App\Models\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function show(BlogPost $blogPost)
+    public function show($id)
     {
-        //
+        $post = BlogPost::find($id);
+        $user = Auth::user();
+
+        return view('blogposts.show', compact('post', 'user'));
     }
 
     /**
@@ -61,10 +63,12 @@ class BlogPostController extends Controller
      * @param  \App\Models\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function edit(BlogPost $blogPost)
+    public function edit($id)
     {
+        $post = BlogPost::find($id);
+
         return view('blogposts.edit', [
-            'post' => $blogPost
+            'post' => $post
         ]);
     }
 

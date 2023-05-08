@@ -28,8 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/posts', [BlogPostController::class, 'index']);
+    Route::get('/posts', [BlogPostController::class, 'index'])->name('posts.index');
     Route::get('/posts/create', [BlogPostController::class, 'create'])->name('posts.create');
+    Route::get('/posts/{id}', [BlogPostController::class, 'show'])->name('posts.show');
     Route::get('/posts/{id}/edit', [BlogPostController::class, 'edit'])->name('posts.edit');
 });
 
