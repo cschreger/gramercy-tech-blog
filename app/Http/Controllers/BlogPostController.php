@@ -16,7 +16,7 @@ class BlogPostController extends Controller
     public function index()
     {
         $posts = BlogPost::all();
-        return view('blogpost.index', compact('posts'));
+        return view('blogposts.index', compact('posts'));
     }
 
     /**
@@ -26,7 +26,7 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        return view('blogpost.create');
+        return view('blogposts.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class BlogPostController extends Controller
      */
     public function edit(BlogPost $blogPost)
     {
-        return view('blogpost.edit', compact('blogpost'));
+        return view('blogposts.edit', compact('blogpost'));
     }
 
     /**
