@@ -4,10 +4,10 @@
 
 @font-face {
   font-family: "SharpBlack";
-  src: url("../public/fonts/SharpSans-No1-Black.otf");
+  src: url("../../public/fonts/SharpSans-No1-Black.otf");
 }
 
 @font-face {
   font-family: "SharpMedium";
-  src: url("../public/fonts/SharpSans-No1-Medium.otf");
+  src: url("../../public/fonts/SharpSans-No1-Medium.otf");
 }

@@ -15,6 +15,9 @@ module.exports = {
                 sharpblack: ['SharpBlack'],
                 sharpmedium: ['SharpMedium']
             },
+            backgroundImage: {
+                'cities': "url('/public/images/login-bg.jpg')"
+            }
         },
     },
 
