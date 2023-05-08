@@ -20,14 +20,23 @@
     <div class="min-h-screen bg-cities flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <h1 class="text-4xl uppercase text-white tracking-wider font-sharpblack mt-12">Register</h1>
 
-        <div class="relative w-5/6 sm:max-w-2xl max-h-2xl mt-12 mb-12 px-12 py-4 bg-gray-950 border-blue-500 shadow-md overflow-hidden">
+        <div class="relative w-5/6 sm:max-w-2xl max-h-2xl mt-12 mb-12 px-12 py-4 bg-gray-950 border-[#5AC8E0] border-2 shadow-md overflow-hidden">
             <div class="mb-4 z-50">
-                <a href="/login"><div class="absolute text-black uppercase rounded-b-md -top-0 left-0 font-sharpblack tracking-wider bg-gray-300 px-4 pt-1">
-                    Sign In
-                </div></a>
-                <a href="/register"><div class="absolute text-black uppercase rounded-b-md -top-0 left-24 font-sharpblack tracking-wider bg-gray-300 px-4 pt-1">
-                    Register
-                </div></a>
+                @if (Route::current()->uri == 'login')
+                    <a href="/login"><div class="absolute text-white uppercase rounded-b-md -top-0 left-0 font-sharpblack tracking-wider bg-[#5AC8E0] px-4 pt-1">
+                        Sign In
+                    </div></a>
+                    <a href="/register"><div class="absolute text-black uppercase rounded-b-md -top-0 left-24 font-sharpblack tracking-wider bg-gray-300 px-4 pt-1">
+                        Register
+                    </div></a>
+                @else
+                    <a href="/login"><div class="absolute text-black uppercase rounded-b-md -top-0 left-0 font-sharpblack tracking-wider bg-gray-300 px-4 pt-1">
+                        Sign In
+                    </div></a>
+                    <a href="/register"><div class="absolute text-white uppercase rounded-b-md -top-0 left-24 font-sharpblack tracking-wider bg-[#5AC8E0] px-4 pt-1">
+                        Register
+                    </div></a>
+                @endif
             </div>
             <div>
                 {{ $slot }}
