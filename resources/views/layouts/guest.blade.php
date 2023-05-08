@@ -17,11 +17,21 @@
 </head>
 
 <body class="font-sans text-gray-900  antialiased">
-    <div class="min-h-screen bg-cities flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div class="min-h-screen bg-cities flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <h1 class="text-4xl uppercase text-white tracking-wider font-sharpblack mt-12">Register</h1>
 
-        <div class="w-5/6 sm:max-w-2xl max-h-2xl mt-12 mb-12 px-12 py-4 bg-gray-950 border-red-500 shadow-md overflow-hidden sm:rounded-lg">
-            {{ $slot }}
+        <div class="relative w-5/6 sm:max-w-2xl max-h-2xl mt-12 mb-12 px-12 py-4 bg-gray-950 border-blue-500 shadow-md overflow-hidden">
+            <div class="mb-4 z-50">
+                <a href="/login"><div class="absolute text-black uppercase rounded-b-md -top-0 left-0 font-sharpblack tracking-wider bg-gray-300 px-4 pt-1">
+                    Sign In
+                </div></a>
+                <a href="/register"><div class="absolute text-black uppercase rounded-b-md -top-0 left-24 font-sharpblack tracking-wider bg-gray-300 px-4 pt-1">
+                    Register
+                </div></a>
+            </div>
+            <div>
+                {{ $slot }}
+            </div>
         </div>
     </div>
 </body>
