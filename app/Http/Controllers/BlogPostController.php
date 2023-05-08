@@ -15,7 +15,8 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = BlogPost::all();
+        return view('blogpost.index', compact('posts'));
     }
 
     /**
@@ -25,7 +26,7 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('blogpost.create');
     }
 
     /**
@@ -58,7 +59,7 @@ class BlogPostController extends Controller
      */
     public function edit(BlogPost $blogPost)
     {
-        //
+        return view('blogpost.edit', compact('blogpost'));
     }
 
     /**
@@ -81,6 +82,7 @@ class BlogPostController extends Controller
      */
     public function destroy(BlogPost $blogPost)
     {
-        //
+        $blogPost->delete();
+        return view('blogpost.index');
     }
 }

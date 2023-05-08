@@ -45,6 +45,11 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(BlogPost::class);
+        return $this->hasMany(BlogPost::class, 'author_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasManyThrough(Comment::class, BlogPost::class, 'author_id', 'post_id');
     }
 }
