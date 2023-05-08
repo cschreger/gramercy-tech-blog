@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\UpdateBlogPostRequest;
 use App\Models\BlogPost;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route as FacadesRoute;
 
 class BlogPostController extends Controller
 {
@@ -15,8 +17,10 @@ class BlogPostController extends Controller
      */
     public function index()
     {
+        $routeUri = FacadesRoute::current()->uri();
+        $user = Auth::user();
         $posts = BlogPost::all();
-        return view('blogposts.index', compact('posts'));
+        return view('blogposts.index', compact('posts', 'user', 'routeUri'));
     }
 
     /**
@@ -59,7 +63,9 @@ class BlogPostController extends Controller
      */
     public function edit(BlogPost $blogPost)
     {
-        return view('blogposts.edit', compact('blogpost'));
+        return view('blogposts.edit', [
+            'post' => $blogPost
+        ]);
     }
 
     /**
