@@ -15,7 +15,7 @@
                         <div class="relative mt-8 flex items-center gap-x-4">
                             <div class="text-sm leading-6">
                                 <p class="font-semibold text-gray-50">
-                                    {{$post->display_name}}
+                                    {{$post->author->display_name}}
                                 </p>
                             </div>
                         </div>

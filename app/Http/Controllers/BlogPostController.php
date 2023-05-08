@@ -66,6 +66,7 @@ class BlogPostController extends Controller
     public function edit($id)
     {
         $post = BlogPost::find($id);
+        if (Auth::user() != $post->author) return "/";
 
         return view('blogposts.edit', [
             'post' => $post
@@ -79,9 +80,12 @@ class BlogPostController extends Controller
      * @param  \App\Models\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogPostRequest $request, BlogPost $blogPost)
+    public function update(UpdateBlogPostRequest $request, $id)
     {
-        //
+        $post = BlogPost::find($id);
+        if (Auth::user() != $post->author) return "/";
+        $post->update($request->all());
+        return redirect("/posts/$post->id");
     }
 
     /**
@@ -90,9 +94,10 @@ class BlogPostController extends Controller
      * @param  \App\Models\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogPost $blogPost)
+    public function destroy($id)
     {
-        $blogPost->delete();
-        return view('blogpost.index');
+        $post = BlogPost::find($id);
+        $post->delete();
+        return redirect('/posts');
     }
 }

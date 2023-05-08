@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts', [BlogPostController::class, 'index'])->name('posts.index');
     Route::get('/posts/create', [BlogPostController::class, 'create'])->name('posts.create');
     Route::get('/posts/{id}', [BlogPostController::class, 'show'])->name('posts.show');
+    Route::put('/posts/{id}', [BlogPostController::class, 'update'])->name('posts.update');
+    Route::delete('/posts/{id}', [BlogPostController::class, 'destroy'])->name('posts.destroy');
     Route::get('/posts/{id}/edit', [BlogPostController::class, 'edit'])->name('posts.edit');
 });
 
