@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(Comment::class, BlogPost::class, 'author_id', 'post_id');
     }
+
+    public function getDisplayNameAttribute()
+    {
+        return $this->first_name . " " . "$this->last_name";
+    }
 }

@@ -25,8 +25,8 @@ class BlogPost extends Model
         return $this->hasMany(Comment::class, 'post_id');
     }
 
-    public function getDisplayNameAttribute()
-    {
-        return $this->author->first_name . " " . $this->author->last_name;
-    }
+    // public function getDisplayNameAttribute()
+    // {
+    //     return $this->author->first_name . " " . $this->author->last_name;
+    // }
 }
