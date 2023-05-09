@@ -18,7 +18,7 @@ class BlogPostController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $posts = BlogPost::all();
+        $posts = BlogPost::all()->sortDesc();
         return view('blogposts.index', compact('posts', 'user'));
     }
 
@@ -67,7 +67,7 @@ class BlogPostController extends Controller
     public function edit($id)
     {
         $post = BlogPost::find($id);
-        if (Auth::user() != $post->author) return "/";
+        if (Auth::user() != $post->author) return redirect("/");
 
         return view('blogposts.edit', [
             'post' => $post
@@ -84,7 +84,7 @@ class BlogPostController extends Controller
     public function update(UpdateBlogPostRequest $request, $id)
     {
         $post = BlogPost::find($id);
-        if (Auth::user() != $post->author) return "/";
+        if (Auth::user() != $post->author) return redirect("/");
         $post->update($request->all());
         return redirect("/posts/$post->id");
     }

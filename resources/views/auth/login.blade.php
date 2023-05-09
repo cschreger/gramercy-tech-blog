@@ -34,7 +34,7 @@
         </div>
 
         {{-- Sign In Button --}}
-        <div class="flex items-center justify-center mt-0 mb-4">
+        <div class="flex items-center justify-center mt-4 mb-4">
             <x-primary-button class="bg-white text-black font-sharpblack">
                 {{ __('Sign In') }}
             </x-primary-button>

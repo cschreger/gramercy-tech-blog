@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -34,9 +35,15 @@ class CommentController extends Controller
      * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentRequest $request)
+    public function store(StoreCommentRequest $request, $id)
     {
-        //
+        $request->merge([
+            'post_id' => intval($id),
+            'author_id' => Auth::user()->id
+        ]);
+        // dd($request->all());
+        Comment::create($request->all());
+        return back();
     }
 
     /**
