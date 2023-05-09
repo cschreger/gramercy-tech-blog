@@ -60,7 +60,7 @@
                     <form action="/posts/{{$post->id}}/comments" method="POST" />
                     @csrf
 
-                    <div>
+                    <div class="mt-8">
                         <label for="body" class="block text-sm font-medium leading-6 text-white">Add your comment</label>
                         <div class="mt-2">
                             <textarea rows="2" name="body" id="body" class="block w-full bg-gray-700 rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>

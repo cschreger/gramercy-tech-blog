@@ -62,7 +62,8 @@ class ProfileController extends Controller
     public function viewPosts()
     {
         $userPosts = BlogPost::where('author_id', Auth::user()->id)->get();
+        $user = Auth::user();
 
-        return view('profile.posts', compact('userPosts'));
+        return view('profile.posts', compact('userPosts', 'user'));
     }
 }
