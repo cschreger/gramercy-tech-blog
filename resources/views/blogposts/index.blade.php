@@ -45,7 +45,7 @@
                                         <div class="min-w-0 flex-1">
                                             <div>
                                                 <div class="text-sm">
-                                                    <a href="#" class="font-medium text-gray-100">{{$comment->author->display_name}}</a>
+                                                    <p class="font-medium text-gray-100">{{$comment->author->display_name}}</p>
                                                 </div>
                                             </div>
                                             <div class="mt-2 text-sm text-gray-200">
